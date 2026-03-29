@@ -1,0 +1,13 @@
+# Python - Archivos temporales que genera el lenguaje al ejecutarse
+__pycache__/
+*.py[c]
+
+# Odoo - Registros de errores
+*.log
+
+# Docker - Carpetas de datos locales de la base de datos
+odoo-db-data/
+odoo-web-data/
+
+# Editor - Configuraciones personales de VS Code
+.vscode/
