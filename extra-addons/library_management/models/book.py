@@ -29,3 +29,5 @@ class ProductTemplate(models.Model):
                 record.years_since_publication = today.year - record.published_date.year
             else:
                 record.years_since_publication = 0
+
+                

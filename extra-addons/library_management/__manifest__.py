@@ -12,7 +12,9 @@
         'website',      
     ],
     'data': [
+        'security/library_groups.xml',
         'security/ir.model.access.csv',
+        'data/library_cron.xml',
         'data/ir_sequence_data.xml',
         'views/book_views.xml',
         'views/partner_views.xml',
