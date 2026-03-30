@@ -5,16 +5,16 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-                <group>
+            <xpath expr="//div[@name='options']" position="after">
+                <group name="library_info_group">
                     <group string="Información Bibliográfica">
-                        <field name="author"/>
-                        <field name="isbn"/>
+                        <field name="author" placeholder="Nombre del escritor..."/>
+                        <field name="isbn" placeholder="Ej: 978-3-16-148410-0"/>
                         <field name="published_date"/>
-                        <field name="years_since_publication"/>
+                        <field name="years_since_publication" readonly="1"/>
                     </group>
                     <group string="Estado de Biblioteca">
-                        <field name="is_available"/>
+                        <field name="is_available" widget="boolean_toggle"/>
                     </group>
                 </group>
             </xpath>
@@ -26,10 +26,12 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_tree_view"/>
         <field name="arch" type="xml">
-            <field name="name" position="after">
-                <field name="author"/>
-                <field name="is_available"/>
-            </field>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="author" optional="show"/>
+                <field name="is_available" widget="badge" 
+                       decoration-success="is_available == True" 
+                       decoration-danger="is_available == False"/>
+            </xpath>
         </field>
     </record>
 </odoo>
