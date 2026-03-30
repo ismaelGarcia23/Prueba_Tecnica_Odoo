@@ -1,0 +1,43 @@
+<odoo>
+    <template id="portal_my_loans_template" name="Mis Préstamos">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Mis Préstamos de Libros</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover mt-3">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Libro</th>
+                                    <th>Fecha de Préstamo</th>
+                                    <th>Fecha Límite</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="loans" t-as="loan">
+                                    <tr>
+                                        <td><span t-field="loan.book_id.name"/></td>
+                                        <td><span t-field="loan.loan_date"/></td>
+                                        <td><span t-field="loan.return_date"/></td>
+                                        <td>
+                                            <span t-if="loan.state == 'loan_date'" class="badge badge-info">Borrador</span>
+                                            <span t-if="loan.state == 'loaned'" class="badge badge-warning">En mi poder</span>
+                                            <span t-if="loan.state == 'returned'" class="badge badge-success">Devuelto</span>
+                                            <span t-if="loan.state == 'overdue'" class="badge badge-danger">Vencido</span>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div t-if="not loans" class="alert alert-info">
+                            Aún no tienes préstamos registrados.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -8,6 +8,7 @@ class ProductTemplate(models.Model):
     author = fields.Char(string="Autor")
     isbn = fields.Char(string="ISBN")
     published_date = fields.Date(string="Fecha de Publicación")
+    is_available = fields.Boolean(string="Disponible", default=True)
     
     # Campo calculado para la antigüedad 
     years_since_publication = fields.Integer(
@@ -28,3 +29,5 @@ class ProductTemplate(models.Model):
                 record.years_since_publication = today.year - record.published_date.year
             else:
                 record.years_since_publication = 0
+
+                
