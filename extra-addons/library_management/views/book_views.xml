@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_book_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.book.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <group>
+                    <group string="Información Bibliográfica">
+                        <field name="author"/>
+                        <field name="isbn"/>
+                        <field name="published_date"/>
+                        <field name="years_since_publication"/>
+                    </group>
+                    <group string="Estado de Biblioteca">
+                        <field name="is_available"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_book_tree_inherit" model="ir.ui.view">
+        <field name="name">product.template.book.tree.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="author"/>
+                <field name="is_available"/>
+            </field>
+        </field>
+    </record>
+</odoo>
